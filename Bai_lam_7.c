@@ -1,16 +1,27 @@
 #include <stdio.h>
 int main() {
-    int arr[] = {1, 2, 3, 4, 2, 2};
-    int n = 6;
-    int value = 2;
-    int count = 0;
-    int i;
-    for (i = 0; i < n; i++) {
-        if (arr[i] == value) {
-            count++;
+    int arr[5] = {1, 2, 3, 4, 5};
+    int n = 5;
+    int x = 3;
+    int left = 0, right = n - 1;
+    int mid;
+    int found = -1;
+    while (left <= right) {
+        mid = (left + right) / 2;
+        if (arr[mid] == x) {
+            found = mid;
+            break;
+        } else if (arr[mid] < x) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
         }
     }
-    printf("%d", count);
+    if (found != -1)
+        printf("Chi so cua phan tu la: %d\n", found);
+    else
+        printf("Khong tim thay\n");
     return 0;
 }
+
 
